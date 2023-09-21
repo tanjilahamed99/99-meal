@@ -6,7 +6,9 @@ const MainUi = () => {
     return (
         <div>
             <Header></Header>
-            <Outlet></Outlet>
+            <div className="bg-orange-950">
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

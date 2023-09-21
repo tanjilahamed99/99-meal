@@ -4,6 +4,8 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import MainUi from './MainUi.jsx'
 import Home from './pages/Home'
+import Meal from './pages/Meal'
+import About from './pages/About'
 
 const router = createBrowserRouter([
   {
@@ -12,13 +14,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        loader: () => fetch('https://www.themealdb.com/api/json/v1/1/search.php?s='),
+        element: < Home ></Home >
       },
       {
-       
+        path: '/meal',
+        element: <Meal></Meal>
       },
       {
-
+        path: '/about',
+        element: <About></About>
       }
     ]
   },
