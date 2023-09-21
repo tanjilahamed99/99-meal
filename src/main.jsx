@@ -6,6 +6,7 @@ import MainUi from './MainUi.jsx'
 import Home from './pages/Home'
 import Meal from './pages/Meal'
 import About from './pages/About'
+import HomeMealsDetails from './pages/HomeMealsDetails'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About></About>
+      },
+      {
+        path: '/meal/details/:name',
+        element: <HomeMealsDetails></HomeMealsDetails>,
+        loader: ({ params }) => fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${params.name}`),
       }
     ]
   },
